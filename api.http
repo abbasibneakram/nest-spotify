@@ -4,7 +4,7 @@ GET http://localhost:3000
 GET http://localhost:3000/songs
 
 ### Find SONGS REQUEST
-GET http://localhost:3000/songs/1
+GET http://localhost:3000/songs/2
 
 ### Create New SONGS REQUEST
 POST http://localhost:3000/songs
@@ -14,7 +14,8 @@ Content-Type: application/json
     "title":"Hello Music",
     "artists":["Sigla"],
     "releasedDate":"2024-11-12",
-    "duration":"02:12"
+    "duration":"02:12",
+    "lyrics":""
 }
 
 

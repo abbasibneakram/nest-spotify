@@ -12,12 +12,13 @@ import {
 } from '@nestjs/common';
 import { SongsService } from './songs.service';
 import { CreateSongDto } from './dto/create-song-dto';
+import { Song } from './songs.entity';
 
 @Controller('songs')
 export class SongsController {
   constructor(private songsService: SongsService) {}
   @Post()
-  create(@Body() createSongDto: CreateSongDto) {
+  create(@Body() createSongDto: CreateSongDto): Promise<Song> {
     return this.songsService.create(createSongDto);
   }
   @Get()
