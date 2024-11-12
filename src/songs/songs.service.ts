@@ -10,6 +10,7 @@ export class SongsService {
   }
 
   findAll() {
+    throw new Error('not implemented');
     return this.songs;
   }
 }
