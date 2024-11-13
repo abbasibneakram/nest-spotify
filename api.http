@@ -1,26 +1,33 @@
 GET http://localhost:3000
 
 ### SEND FETCH SONGS REQUEST
-GET http://localhost:3000/songs
+GET http://localhost:3000/songs?page=1&limit=6
 
 ### Find SONGS REQUEST
-GET http://localhost:3000/songs/2
+GET http://localhost:3000/songs/4
 
 ### Create New SONGS REQUEST
 POST http://localhost:3000/songs
 Content-Type: application/json
 
 {
-    "title":"Hello Music",
-    "artists":["Sigla"],
-    "releasedDate":"2024-11-12",
-    "duration":"02:12",
-    "lyrics":""
+    "title":"Love Nawantiti 1",
+    "artists":["Alex"],
+    "releasedDate":"2024-11-13",
+    "duration":"11:51",
+    "lyrics":"Give me love nawntiti"
 }
 
 
 ### Update SONGS REQUEST
-PUT http://localhost:3000/songs/1
+PUT http://localhost:3000/songs/3
+Content-Type: application/json
 
-### Update SONGS REQUEST
-DELETE http://localhost:3000/songs/1
+{
+    "title":"Cheap Thrills",
+    "artists":["Chia"],
+    "lyrics":"Come on com on turn the radio on"
+}
+
+### Delete SONGS REQUEST
+DELETE http://localhost:3000/songs/2
