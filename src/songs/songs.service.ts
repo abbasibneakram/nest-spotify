@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 import { Song } from './songs.entity';
 import { CreateSongDto } from './dto/create-song-dto';
 import { InjectRepository } from '@nestjs/typeorm';
+import { UpdateSongDTO } from './dto/update-song-dto';
 
 @Injectable()
 export class SongsService {
@@ -23,8 +24,19 @@ export class SongsService {
     return this.songsRepository.save(song);
   }
 
-  findAll() {
-    throw new Error('not implemented');
-    return this.songs;
+  findAll(): Promise<Song[]> {
+    return this.songsRepository.find();
+  }
+
+  findOne(id: number): Promise<Song> {
+    return this.songsRepository.findOneBy({ id });
+  }
+
+  remove(id: number): Promise<DeleteResult> {
+    return this.songsRepository.delete({ id });
+  }
+
+  update(id: number, recordToUpdate: UpdateSongDTO): Promise<UpdateResult> {
+    return this.songsRepository.update(id, recordToUpdate);
   }
 }
